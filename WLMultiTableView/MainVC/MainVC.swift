@@ -10,15 +10,25 @@ import UIKit
 
 class MainVC: UIViewController {
 
+    @IBOutlet weak var adView: UIView!
+    
+    @IBOutlet weak var titleButtonView: UIView!
+    
+    let navigationView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: WLWitdh, height: 64))
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.purple
+        self.automaticallyAdjustsScrollViewInsets = false
+        navigationView.backgroundColor = UIColor.white
+        view.addSubview(navigationView)
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     class func getMainVC() -> MainVC {
@@ -29,14 +39,21 @@ class MainVC: UIViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
