@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubCollectionView" customModule="WLMultiTableView" customModuleProvider="target">
+            <connections>
+                <outlet property="subCollectionView" destination="B85-Yh-lM9" id="DEU-Om-AcG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="B85-Yh-lM9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewLayout key="collectionViewLayout" id="iNI-7a-qVr" customClass="SubCollectionFlowLayout" customModule="WLMultiTableView" customModuleProvider="target"/>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="B85-Yh-lM9" secondAttribute="bottom" id="8cg-3V-6qk"/>
+                <constraint firstItem="B85-Yh-lM9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bNZ-Ps-PRq"/>
+                <constraint firstItem="B85-Yh-lM9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gEz-n1-EB4"/>
+                <constraint firstAttribute="trailing" secondItem="B85-Yh-lM9" secondAttribute="trailing" id="hHU-Z0-IWY"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

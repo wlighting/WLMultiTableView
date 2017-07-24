@@ -11,9 +11,9 @@ import UIKit
 // 当前系统版本
 let kVersion = (UIDevice.current.systemVersion as NSString).floatValue
 // 屏幕宽度
-let WLWitdh = UIScreen.main.bounds.height
+let WLWitdh = UIScreen.main.bounds.width
 // 屏幕高度
-let WLHeight = UIScreen.main.bounds.width
+let WLHeight = UIScreen.main.bounds.height
 
 // MARK:- 颜色方法
 func WLRGBA (r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {

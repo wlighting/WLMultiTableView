@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,15 +37,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gi5-ES-TOC">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJW-c9-JRU">
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJW-c9-JRU">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yi-yu-6Zh">
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yi-yu-6Zh">
                                                         <rect key="frame" x="125" y="0.0" width="125" height="40"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-Mj-qNj">
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-Mj-qNj">
                                                         <rect key="frame" x="250" y="0.0" width="125" height="40"/>
                                                         <state key="normal" title="Button"/>
                                                     </button>
@@ -65,8 +65,39 @@
                                             <constraint firstAttribute="trailing" secondItem="Gi5-ES-TOC" secondAttribute="trailing" id="pos-hW-Dtw"/>
                                         </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmd-BV-DDO">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lmd-BV-DDO">
                                         <rect key="frame" x="0.0" y="240" width="375" height="563"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kU-UG-u4U">
+                                                <rect key="frame" x="0.0" y="0.0" width="1125" height="563"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMG-qo-8rH" customClass="SubTableView" customModule="WLMultiTableView" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
+                                                        <color key="backgroundColor" red="1" green="0.38702855720000001" blue="0.40656084440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxV-L7-jg6" customClass="SubCollectionView" customModule="WLMultiTableView" customModuleProvider="target">
+                                                        <rect key="frame" x="375" y="0.0" width="375" height="563"/>
+                                                        <color key="backgroundColor" red="0.59903200030000003" green="0.64347932750000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDN-i5-3QG" customClass="SubScrollView" customModule="WLMultiTableView" customModuleProvider="target">
+                                                        <rect key="frame" x="750" y="0.0" width="375" height="563"/>
+                                                        <color key="backgroundColor" red="1" green="0.52109882610000002" blue="0.56556548309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="pMG-qo-8rH" firstAttribute="width" secondItem="yxV-L7-jg6" secondAttribute="width" id="foL-ie-fki"/>
+                                                    <constraint firstItem="yxV-L7-jg6" firstAttribute="width" secondItem="zDN-i5-3QG" secondAttribute="width" id="vqp-Es-mwq"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4kU-UG-u4U" firstAttribute="leading" secondItem="Lmd-BV-DDO" secondAttribute="leading" id="7qc-2Q-h7l"/>
+                                            <constraint firstItem="4kU-UG-u4U" firstAttribute="top" secondItem="Lmd-BV-DDO" secondAttribute="top" id="FTx-pC-jw8"/>
+                                            <constraint firstAttribute="trailing" secondItem="4kU-UG-u4U" secondAttribute="trailing" id="nPd-Y7-tM4"/>
+                                            <constraint firstItem="4kU-UG-u4U" firstAttribute="width" secondItem="Lmd-BV-DDO" secondAttribute="width" multiplier="3:1" id="oIM-TQ-ncx"/>
+                                            <constraint firstAttribute="bottom" secondItem="4kU-UG-u4U" secondAttribute="bottom" id="pI7-Fy-fZb"/>
+                                            <constraint firstItem="4kU-UG-u4U" firstAttribute="height" secondItem="Lmd-BV-DDO" secondAttribute="height" id="wfD-30-H5S"/>
+                                        </constraints>
                                     </scrollView>
                                 </subviews>
                                 <constraints>
@@ -98,12 +129,20 @@
                     <navigationItem key="navigationItem" id="yqz-uP-94W"/>
                     <connections>
                         <outlet property="adView" destination="Mo4-t9-IBW" id="qUR-sJ-wv5"/>
-                        <outlet property="titleButtonView" destination="PmP-Z9-6P9" id="Bqe-XK-nWy"/>
+                        <outlet property="allConttentScrollView" destination="RdG-nX-8im" id="pyM-OU-dgA"/>
+                        <outlet property="bottomContentScrollView" destination="Lmd-BV-DDO" id="hyk-6l-iyO"/>
+                        <outlet property="subCollectionView" destination="yxV-L7-jg6" id="KWW-Ir-9p5"/>
+                        <outlet property="subScrollView" destination="zDN-i5-3QG" id="XzY-ot-eNp"/>
+                        <outlet property="subTableView" destination="pMG-qo-8rH" id="2Cy-dG-uMp"/>
+                        <outlet property="titleButtonView" destination="PmP-Z9-6P9" id="rgl-Kk-sea"/>
+                        <outletCollection property="buttons" destination="DJW-c9-JRU" collectionClass="NSMutableArray" id="bWR-2h-iUB"/>
+                        <outletCollection property="buttons" destination="4Yi-yu-6Zh" collectionClass="NSMutableArray" id="abg-DN-rVg"/>
+                        <outletCollection property="buttons" destination="hkQ-Mj-qNj" collectionClass="NSMutableArray" id="HaJ-jC-cmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfc-Ui-VUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90" y="82"/>
+            <point key="canvasLocation" x="-90.400000000000006" y="81.409295352323838"/>
         </scene>
     </scenes>
 </document>

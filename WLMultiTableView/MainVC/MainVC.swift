@@ -14,6 +14,18 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var titleButtonView: UIView!
     
+    @IBOutlet weak var bottomContentScrollView: UIScrollView!
+    
+    @IBOutlet weak var allConttentScrollView: UIScrollView!
+
+    @IBOutlet weak var subTableView: SubTableView!
+    
+    @IBOutlet weak var subCollectionView: SubCollectionView!
+    
+    @IBOutlet weak var subScrollView: SubScrollView!
+    
+    @IBOutlet var buttons: [UIButton]!
+    
     let navigationView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: WLWitdh, height: 64))
     
     
