@@ -10,9 +10,6 @@ import UIKit
 
 class SubCollectionFlowLayout: UICollectionViewFlowLayout {
 
-    
-    
-    
     override func prepare() {
         super.prepare()
         self.scrollDirection = .vertical;
