@@ -8,6 +8,12 @@
 
 import UIKit
 
+import SDCycleScrollView
+
+import SwiftyJSON
+
+import HandyJSON
+
 class MainVC: UIViewController {
 
     @IBOutlet weak var adView: UIView!
@@ -26,6 +32,8 @@ class MainVC: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
     
+    var urlPics: [String] = [String]()
+    
     let navigationView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: WLWitdh, height: 64))
     
     
@@ -38,6 +46,8 @@ class MainVC: UIViewController {
         view.addSubview(navigationView)
         
         setUpInitail()
+        
+        requstAdData();
         
     }
 
@@ -166,11 +176,63 @@ extension MainVC : UIScrollViewDelegate,UITableViewDelegate,UICollectionViewDele
 
 }
 
+extension  MainVC {
+
+    
+    func setUpAdView(addArray : [AdModel]) {
+        guard let cycleView = SDCycleScrollView(frame: adView.bounds, delegate: self, placeholderImage: nil) else { return }
+
+        cycleView.pageControlStyle = SDCycleScrollViewPageContolStyleNone
+        cycleView.imageURLStringsGroup = urlPics
+        adView.addSubview(cycleView)
+    }
+
+}
 
 
+extension MainVC: SDCycleScrollViewDelegate {
+    func cycleScrollView(_ cycleScrollView: SDCycleScrollView!, didSelectItemAt index: Int) {
+        WLLog("你选中了第\(index)张")
+    }
+}
 
 
+extension MainVC {
 
+    func requstAdData() {
+//        http://112.124.47.54:31370
+        SYHttpTool.shareInstance.requestData(methodType: .GET, urlString: "http://112.124.47.54:31370/product/top", parameters: ["typeName":"home"]) { (result, error) in
+            
+            if error != nil {
+                WLLog(error)
+            } else {
+                let json = JSON(result)
+                
+                if let adModels = [AdModel].deserialize(from: json["content"].description , designatedPath: "data") {
+                    adModels.forEach({ (adModel) in
+                         WLLog(adModel?.url)
+                    })
+                }
+              
+//                if let adModels = JSONDeserializer<AdModel>.deserializeModelArrayFrom(json: json["content"].description ) {
+//                    adModels.forEach({ (adModel) in
+//                        WLLog(adModel)
+//                    })
+//
+//                
+//                }
+                
+                
+                
+            }
+            
+        }
+        
+
+    }
+
+  
+}
 
 
 
