@@ -100,7 +100,7 @@ extension MainVC : UIScrollViewDelegate,UITableViewDelegate,UICollectionViewDele
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView == allConttentScrollView {
-            WLLog("scrollViewDidScroll")
+//            WLLog("主ConttentScrollView滚动")
         }
         
 //        WLLog(scrollView)
@@ -148,7 +148,13 @@ extension MainVC : UIScrollViewDelegate,UITableViewDelegate,UICollectionViewDele
             WLLog(offsetY)
             
             if offsetY < 0  {
-                allConttentScrollView.setContentOffset(CGPoint.zero, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    // your code here
+                    self.allConttentScrollView.setContentOffset(CGPoint.zero, animated: true)
+                    WLLog("主ConttentScrollView 回到原位置")
+                }
+                
+                
             }
         
         
@@ -170,6 +176,8 @@ extension MainVC : UIScrollViewDelegate,UITableViewDelegate,UICollectionViewDele
                 
             }
         }
+        
+        
         
     }
     
